@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Task Manager",
+    "version": "1.0",
+    "description": "Manage your tasks with deadlines and notifications.",
+    "permissions": [
+      "storage",
+      "alarms",
+      "notifications",
+      "activeTab"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.gif",
+        "128": "images/icon48.png"
+      }
+    },
+    "options_page": "options.html",
+    "icons": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.gif",
+      "128": "images/icon48.png"
+    }
+  }
+  

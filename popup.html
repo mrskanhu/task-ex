@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager</title>
+  <link id="theme-stylesheet" rel="stylesheet" href="styles/light-theme.css">
+  <style>
+    body {
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+      width: 320px;
+      height: 600px;
+      overflow: hidden;
+    }
+    button {
+      font-size: 12px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+    }
+    button img {
+      margin-right: 5px;
+      width: 16px;
+      height: 16px;
+    }
+    #task-form {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
+    #task-form label {
+      font-weight: bold;
+    }
+    #task-form input,
+    #task-form select,
+    #task-form textarea {
+      margin: 5px 0;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+    #task-list {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .task-item {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task-item button {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+    }
+    .task-item button img {
+      width: 16px;
+      height: 16px;
+    }
+    #stopwatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+    #stopwatch-time {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    #stopwatch-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    #stopwatch-buttons button {
+      flex: 1;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Task Manager</h1>
+  <div id="app">
+    <form id="task-form">
+      <label for="task-name">Task Name:</label>
+      <input type="text" id="task-name" required><br>
+      <label for="task-deadline">Deadline:</label>
+      <input type="datetime-local" id="task-deadline" required><br>
+      <label for="task-priority">Priority:</label>
+      <select id="task-priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select><br>
+      <label><input type="checkbox" id="show-notes"> Show Notes</label><br>
+      <textarea id="task-notes" style="display: none;"></textarea><br>
+      <button type="submit" id="add-icon"><img src="images/add-icon.png" alt="Add Task">Add Task</button>
+    </form>
+    <button id="change-theme"><img src="images/theme-icon.png" alt="Change Theme">Change Theme</button>
+    <button id="download-summary"><img src="images/download-icon.png" alt="Download">Download Summary</button>
+    <div id="task-list">
+      <div id="incomplete-task-list"></div>
+      <div id="completed-task-list"></div>
+      <button id="show-more-incomplete">Show More Incomplete</button>
+      <button id="show-more-completed">Show More Completed</button>
+    </div>
+    <div id="stopwatch">
+      <span id="stopwatch-time">00:00:00</span>
+      <div id="stopwatch-buttons">
+        <button id="set-timer">Set Timer</button>
+        <button id="reset-timer">Reset Timer</button>
+      </div>
+    </div>
+    <div id="task-progress-graph"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
